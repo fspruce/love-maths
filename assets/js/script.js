@@ -6,7 +6,12 @@ document.addEventListener("DOMContentLoaded", function() {
   for (let button of buttons) {
     button.addEventListener("click", function() {
       if (this.getAttribute("data-type") === 'submit') {
-        checkAnswer();
+        if (document.getElementById('answer-box').value) {
+          checkAnswer();
+        } else {
+          document.getElementById('answer-box').focus();
+          document.getElementById('feedback').innerText = "Please enter your answer before submitting!";
+        }
       } else {
         let gameType = this.getAttribute("data-type");
         runGame(gameType);
@@ -35,6 +40,9 @@ function runGame(gameType) {
       break;
     case 'subtract':
       displaySubtractQuestion(num1, num2);
+      break;
+    case 'division':
+      displayDivisionQuestion(num1, num2);
       break;
     default: 
       alert(`Unknown game type: ${gameType}`);
@@ -76,6 +84,8 @@ function calculateCorrectAnswer() {
       return [operand1 * operand2, "multiply"];
     case '-':
       return [operand1 - operand2, "subtract"];
+    case '\u00F7':
+      return [operand1 / operand2, "division"];
     default:
       alert(`Unimplemented operator ${operator}`);
       throw `Unimplemented operator ${operator}`;
@@ -110,8 +120,8 @@ function displayAdditionQuestion(operand1, operand2) {
 }
 
 function displaySubtractQuestion(operand1, operand2) {
-  document.getElementById('operand1').innerText = operand1;
-  document.getElementById('operand2').innerText = operand2;
+  document.getElementById('operand1').innerText = operand1 > operand2 ? operand1 : operand2;
+  document.getElementById('operand2').innerText = operand1 > operand2 ? operand2 : operand1;
   document.getElementById('operator').innerText = "-";
 }
 
