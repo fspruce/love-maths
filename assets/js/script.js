@@ -23,6 +23,8 @@ document.addEventListener("DOMContentLoaded", function() {
 function runGame(gameType) {
   let num1 = Math.floor(Math.random() * 26);
   let num2 = Math.floor(Math.random() * 26);
+  document.getElementById('answer-box').value = "";
+  document.getElementById('answer-box').focus();
 
   switch (gameType) {
     case 'addition':
@@ -30,6 +32,9 @@ function runGame(gameType) {
       break;
     case 'multiply':
       displayMultiplyQuestion(num1, num2);
+      break;
+    case 'subtract':
+      displaySubtractQuestion(num1, num2);
       break;
     default: 
       alert(`Unknown game type: ${gameType}`);
@@ -69,6 +74,8 @@ function calculateCorrectAnswer() {
       return [operand1 + operand2, "addition"];
     case 'x':
       return [operand1 * operand2, "multiply"];
+    case '-':
+      return [operand1 - operand2, "subtract"];
     default:
       alert(`Unimplemented operator ${operator}`);
       throw `Unimplemented operator ${operator}`;
@@ -102,8 +109,10 @@ function displayAdditionQuestion(operand1, operand2) {
   document.getElementById('operator').innerText = "+";
 }
 
-function displaySubtractQuestion() {
-
+function displaySubtractQuestion(operand1, operand2) {
+  document.getElementById('operand1').innerText = operand1;
+  document.getElementById('operand2').innerText = operand2;
+  document.getElementById('operator').innerText = "-";
 }
 
 /**
@@ -117,6 +126,6 @@ function displayMultiplyQuestion(operand1, operand2) {
   document.getElementById('operator').innerText = "x";
 }
 
-function displayDivisionQuestion() {
+function displayDivisionQuestion(operand1, operand2) {
 
 }
