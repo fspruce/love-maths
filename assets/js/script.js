@@ -18,6 +18,11 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     })
   }
+  document.getElementById('answer-box').addEventListener("keydown", function(event){
+    if (event.key === "Enter") {
+      checkAnswer();
+    }
+  })
   runGame("addition");
 })
 
@@ -109,7 +114,7 @@ function incrementWrongAnswer() {
 }
 
 /**
- * Displays an addition question in the DOM.
+ * Displays an addition question in the DOM (positive answers only);
  * @param {*} operand1 
  * @param {*} operand2 
  */
