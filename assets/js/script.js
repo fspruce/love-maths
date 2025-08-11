@@ -70,6 +70,7 @@ function checkAnswer() {
     document.getElementById('feedback').innerText = `Awww.... you answered ${userAnswer}. The correct answer was ${calculatedAnswer[0]}!`;
     incrementWrongAnswer();
   }
+  displayHistory(isCorrect);
   runGame(calculatedAnswer[1]);
 }
 
@@ -147,4 +148,21 @@ function displayDivisionQuestion(operand1, operand2) {
   document.getElementById('operand1').innerText = operand3;
   document.getElementById('operand2').innerText = operand2 === 0 ? operand1 : operand2;
   document.getElementById('operator').innerText = "\u00F7";
+}
+
+function displayHistory(isCorrect){
+  let historyContainer = document.createElement("div");
+  let historyParagraph = document.createElement("p");
+  let lastAnswer = 
+    `${document.getElementById('operand1').innerText} ${document.getElementById('operator').innerText} ${document.getElementById('operand2').innerText} = ${document.getElementById('answer-box').value} `;
+  if (isCorrect) {
+    lastAnswer += `\u2714`;
+  } else {
+    let correctAnswer = calculateCorrectAnswer()[0];
+    lastAnswer += `\u2716 ${correctAnswer}`;
+  }
+  historyContainer.classList.add("history-container");
+  historyParagraph.innerHTML = lastAnswer
+  historyContainer.appendChild(historyParagraph);
+  document.getElementById('answer-history').appendChild(historyContainer);
 }

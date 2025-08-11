@@ -84,6 +84,18 @@ body {
     padding: 25px;
 }
 
+#answer-history {
+  overflow-y: auto;
+  max-height: calc(1.2em * 5 + 10px); /* 5 lines + some padding */
+  max-width: fit-content;
+  margin: 0 auto;
+}
+#answer-history p {
+  margin: 0;
+  padding: 2px 0;
+  line-height: 1.2;
+}
+
 /* --------- Buttons */
 
 .btn {
