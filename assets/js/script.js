@@ -115,7 +115,7 @@ function incrementWrongAnswer() {
 }
 
 /**
- * Displays an addition question in the DOM (positive answers only);
+ * Displays an addition question in the DOM;
  * @param {*} operand1 
  * @param {*} operand2 
  */
@@ -125,6 +125,11 @@ function displayAdditionQuestion(operand1, operand2) {
   document.getElementById('operator').innerText = "+";
 }
 
+/**
+ * Displays a subtraction question in the DOM (positive answers only).
+ * @param {*} operand1 
+ * @param {*} operand2 
+ */
 function displaySubtractQuestion(operand1, operand2) {
   document.getElementById('operand1').innerText = operand1 > operand2 ? operand1 : operand2;
   document.getElementById('operand2').innerText = operand1 > operand2 ? operand2 : operand1;
@@ -142,6 +147,12 @@ function displayMultiplyQuestion(operand1, operand2) {
   document.getElementById('operator').innerText = "x";
 }
 
+/**
+ * Displays a division question in the DOM, ensuring answers are integers, and division by
+ * zero does not occur.
+ * @param {*} operand1 
+ * @param {*} operand2 
+ */
 function displayDivisionQuestion(operand1, operand2) {
   (operand1 === 0 && operand2 === 0) ? operand2++ : null;
   let operand3 = operand1 * operand2;
@@ -150,6 +161,11 @@ function displayDivisionQuestion(operand1, operand2) {
   document.getElementById('operator').innerText = "\u00F7";
 }
 
+/**
+ * Displays the question history and the user's answers, with the correct answer
+ * if the user was incorrect.
+ * @param {*} isCorrect 
+ */
 function displayHistory(isCorrect){
   let historyContainer = document.createElement("div");
   let historyParagraph = document.createElement("p");
