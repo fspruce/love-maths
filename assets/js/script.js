@@ -164,5 +164,5 @@ function displayHistory(isCorrect){
   historyContainer.classList.add("history-container");
   historyParagraph.innerHTML = lastAnswer
   historyContainer.appendChild(historyParagraph);
-  document.getElementById('answer-history').appendChild(historyContainer);
+  document.getElementById('answer-history').prepend(historyContainer);
 }
