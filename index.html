@@ -1,39 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <title>Love Maths</title>
-    <!-- Styles -->
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="[/apple-touch-icon.png/]">
-    <link rel="icon" type="image/png" sizes="32x32" href="[/favicon-32x32.png/]">
-    <link rel="icon" type="image/png" sizes="16x16" href="[/favicon-16x16.png/]">
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
-  </head>
-  <body>
-    <h1 class="heading">
-      <img class="logo" src="assets/images/logo.png" alt="logo">
-      Love Maths
-    </h1>
 
-    <div class="game-area"></div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Love Maths</title>
+  <!-- Styles -->
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
 
-    <div class="score-area">
-      <p class="scores">Correct Answers <span id="score">0</span></p>
-      <p class="scores">Correct Answers <span id="incorrect">0</span></p>
+<body>
+  <h1 class="heading">
+    <img class="logo" src="assets/images/logo.png" alt="logo">
+    Love Maths
+  </h1>
+
+  <div class="game-area">
+    <div class="controls-area">
+      <button class="btn btn--big btn--green">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+      <button class="btn btn--big btn--blue">
+        <i class="fa-solid fa-minus"></i>
+      </button>
+      <button class="btn btn--big btn--orange">
+        <i class="fa-solid fa-times"></i>
+      </button>
+      <button class="btn btn--big btn--red">
+        <i class="fa-solid fa-divide"></i>
+      </button>
     </div>
+  </div>
+  <div class="question-area">
+    <span id="operand1">0</span>
+    <span id="operator">x</span>
+    <span id="operand2">0</span>
+    <span> = </span>
+    <p class="answer-message">Enter Answer:</p>
+    <input id="answer-box" type="number">
+  </div>
+  <button class="btn btn--gray">Submit Answer</button>
 
-    <!-- Scripts -->
-    <!-- Bootstrap 5 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
-    <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/28c4feae7e.js" crossorigin="anonymous"></script>
-    <!-- Custom JS -->
-    <script src="assets/js/script.js"></script>
-  </body>
+  <div class="score-area">
+    <p class="scores">Correct Answers <span id="score">0</span></p>
+    <p class="scores">Correct Answers <span id="incorrect">0</span></p>
+  </div>
+
+  <!-- Scripts -->
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+    crossorigin="anonymous"></script>
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/28c4feae7e.js" crossorigin="anonymous"></script>
+  <!-- Custom JS -->
+  <script src="assets/js/script.js"></script>
+</body>
+
 </html>
